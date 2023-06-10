@@ -4,8 +4,8 @@
   "description": "Express server to create short URL links",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node index.ts",
-    "dev": "nodemon index.ts"
+    "start": "npx ts-node src/index.ts",
+    "dev": "nodemon src/index.ts"
   },
   "author": "Varun Vaibhav",
   "license": "ISC",
