@@ -1,0 +1,19 @@
+{
+  "name": "short-link-api",
+  "version": "1.0.0",
+  "description": "Express server to create short URL links",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node index.ts",
+    "dev": "nodemon index.ts"
+  },
+  "author": "Varun Vaibhav",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.6",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
