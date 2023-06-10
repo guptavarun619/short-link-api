@@ -10,6 +10,7 @@ export interface LinkInterface {
     userId: Schema.Types.ObjectId
 }
 
+const today = new Date();
 const linkSchema = new Schema<LinkInterface>({
     originalUrl: {
         type: String,
@@ -34,7 +35,7 @@ const linkSchema = new Schema<LinkInterface>({
     },
     expiryDate: {
         type: Date,
-        default: new Date()
+        default: new Date(today.getTime() + (365*24*60*60*1000))
     },
     userId: {
         type: Schema.Types.ObjectId,
