@@ -19,6 +19,7 @@ const linkSchema = new Schema<LinkInterface>({
     shortUrlSlug: {
         type: String,
         required: true,
+        unique: true
     },
     title: {
         type: String,
