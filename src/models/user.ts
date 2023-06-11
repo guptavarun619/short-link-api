@@ -1,5 +1,6 @@
 import { Schema, Types, model } from "mongoose";
-import { LinkInterface } from "./link";
+import bcrypt from "bcrypt";
+import { SALT_ROUND } from "../config/serverConfig";
 
 enum TIER {
     PRO = 'pro',
@@ -32,5 +33,15 @@ const userSchema = new Schema<UserInterface>({
         type: Date
     }
 },{ timestamps: true });
+
+userSchema.pre('save', async function(next) {
+    if (this.isModified('password')) {
+        const hash = await bcrypt.hashSync(this.password, parseInt(SALT_ROUND as string));
+        this.password = hash;
+        next();
+    } else {
+        next();
+    }
+})
 
 export const User = model<UserInterface>('User', userSchema);
