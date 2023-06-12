@@ -12,8 +12,11 @@ interface UserInterface {
     password: string;
     tier: TIER;
     validity: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
+const today = new Date();
 const userSchema = new Schema<UserInterface>({
     username: {
         type: String,
@@ -30,7 +33,8 @@ const userSchema = new Schema<UserInterface>({
         default: TIER.FREE
     },
     validity: {
-        type: Date
+        type: Date,
+        default: new Date(today.getTime() + (365*24*60*60*1000))
     }
 },{ timestamps: true });
 
